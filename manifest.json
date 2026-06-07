@@ -215,5 +215,12 @@
     "description": "Inject keyboard input into a running application on the A1 VM display via xdotool/ydotool.",
     "tags": ["keyboard", "keystrokes", "automation", "input", "xdotool"],
     "invoke": { "type": "myagent_http", "tool": "keystroke_inject" }
+  },
+  {
+    "id": "get_credential",
+    "name": "Get Credential",
+    "description": "Retrieve an API key, token, password, or credential from the agent's encrypted secure store. Call with key='OPENAI_API_KEY' to get a value, or omit key to list all available credential names. Use this instead of hunting for keys in config files.",
+    "tags": ["credentials", "api-key", "secret", "config", "token", "password"],
+    "invoke": { "type": "myagent_http", "tool": "get_credential" }
   }
 ]
