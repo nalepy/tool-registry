@@ -91,7 +91,7 @@ if (generateOnly) {
 // Upload via wrangler
 console.log("\nUploading to Cloudflare KV...");
 try {
-  execSync(`npx wrangler kv bulk put --binding REGISTRY "${outputPath}"`, {
+  execSync(`npx wrangler kv bulk put --binding REGISTRY --remote "${outputPath}"`, {
     stdio: "inherit",
     cwd: ROOT,
   });
