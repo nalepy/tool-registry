@@ -84,14 +84,14 @@ console.log(`  Index entry:  1 (${manifest.length} tools)`);
 const generateOnly = process.argv.includes("--generate-only");
 if (generateOnly) {
   console.log("\nDry run. To upload:");
-  console.log("  npx wrangler kv:bulk put --binding REGISTRY seed-data.json");
+  console.log("  npx wrangler kv bulk put --binding REGISTRY seed-data.json");
   process.exit(0);
 }
 
 // Upload via wrangler
 console.log("\nUploading to Cloudflare KV...");
 try {
-  execSync(`npx wrangler kv:bulk put --binding REGISTRY "${outputPath}"`, {
+  execSync(`npx wrangler kv bulk put --binding REGISTRY "${outputPath}"`, {
     stdio: "inherit",
     cwd: ROOT,
   });
