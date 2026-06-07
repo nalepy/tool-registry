@@ -1,0 +1,17 @@
+name = "tool-registry"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+# account_id = "YOUR_ACCOUNT_ID"  # set after: npx wrangler login
+
+[[kv_namespaces]]
+binding = "REGISTRY"
+id = "REPLACE_WITH_KV_ID"
+# Create with: npx wrangler kv:namespace create REGISTRY
+# Then paste the id above
+
+[vars]
+MYAGENT_URL = "https://myagent.nestorale.shop"
+
+# Secrets — set with: npx wrangler secret put REGISTRY_TOKEN
+# REGISTRY_TOKEN       = bearer token for Claude Code → Worker auth
+# MYAGENT_INVOKE_TOKEN = bearer token for Worker → myagent /api/invoke auth

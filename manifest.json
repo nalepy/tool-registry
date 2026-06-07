@@ -1,0 +1,219 @@
+[
+  {
+    "id": "web_search",
+    "name": "Web Search",
+    "description": "Search the web via SerpAPI (Google, Bing, DuckDuckGo, news, images, shopping, YouTube). Primary search tool.",
+    "tags": ["search", "web", "google", "news", "images", "shopping"],
+    "invoke": { "type": "myagent_http", "tool": "web_search" }
+  },
+  {
+    "id": "web_fetch",
+    "name": "Web Fetch",
+    "description": "Fetch and extract text content from a URL. Handles redirects, respects robots. SSRF-guarded.",
+    "tags": ["fetch", "url", "http", "content"],
+    "invoke": { "type": "myagent_http", "tool": "web_fetch" }
+  },
+  {
+    "id": "scrape_url",
+    "name": "Scrape URL",
+    "description": "Scrape a single URL and return clean text. Chain: Firecrawl → SerpAPI → Apify → Scrapling (anti-bot) → Crawl4AI → requests. Best for JS-heavy pages and Facebook/Instagram/Cloudflare-protected sites.",
+    "tags": ["scrape", "url", "javascript", "facebook", "instagram", "cloudflare", "bot-protected"],
+    "invoke": { "type": "myagent_http", "tool": "scrape_url" }
+  },
+  {
+    "id": "serpapi",
+    "name": "SerpAPI Multi-Engine Search",
+    "description": "Search any engine via SerpAPI: Google, Google Flights, Google News, Google Images, Google Shopping, Google Local, Google Jobs, YouTube, Bing, Amazon, Walmart, Yelp, Tripadvisor.",
+    "tags": ["search", "serpapi", "flights", "news", "images", "shopping", "amazon", "youtube", "yelp"],
+    "invoke": { "type": "myagent_http", "tool": "serpapi" }
+  },
+  {
+    "id": "apify_run_actor",
+    "name": "Run Apify Actor",
+    "description": "Run any Apify actor for web scraping, data extraction, flight prices, hotel rates, e-commerce. Use apify_actor_schema first to get required input fields.",
+    "tags": ["apify", "scrape", "actor", "flights", "hotels", "ecommerce", "data"],
+    "invoke": { "type": "myagent_http", "tool": "apify_run_actor" }
+  },
+  {
+    "id": "apify_actor_schema",
+    "name": "Apify Actor Schema",
+    "description": "Get input schema and example for any Apify actor before running it.",
+    "tags": ["apify", "schema", "actor"],
+    "invoke": { "type": "myagent_http", "tool": "apify_actor_schema" }
+  },
+  {
+    "id": "browser_go",
+    "name": "Browser Navigate",
+    "description": "Navigate a Playwright browser to a URL. Use before browser_click, browser_fill, browser_html, browser_screenshot.",
+    "tags": ["browser", "playwright", "navigate", "automation"],
+    "invoke": { "type": "myagent_http", "tool": "browser_go" }
+  },
+  {
+    "id": "browser_click",
+    "name": "Browser Click",
+    "description": "Click an element on the current browser page by CSS selector or text.",
+    "tags": ["browser", "playwright", "click", "automation"],
+    "invoke": { "type": "myagent_http", "tool": "browser_click" }
+  },
+  {
+    "id": "browser_fill",
+    "name": "Browser Fill Form",
+    "description": "Fill a form field on the current browser page.",
+    "tags": ["browser", "playwright", "form", "automation"],
+    "invoke": { "type": "myagent_http", "tool": "browser_fill" }
+  },
+  {
+    "id": "browser_screenshot",
+    "name": "Browser Screenshot",
+    "description": "Take a screenshot of the current browser page. Returns PNG image.",
+    "tags": ["browser", "screenshot", "playwright"],
+    "invoke": { "type": "myagent_http", "tool": "browser_screenshot" }
+  },
+  {
+    "id": "browser_html",
+    "name": "Browser Get HTML",
+    "description": "Get HTML source of the current browser page.",
+    "tags": ["browser", "html", "source", "playwright"],
+    "invoke": { "type": "myagent_http", "tool": "browser_html" }
+  },
+  {
+    "id": "send_telegram",
+    "name": "Send Telegram Message",
+    "description": "Send a message to the owner via Telegram, or to any chat_id when owner names the recipient.",
+    "tags": ["telegram", "message", "notify", "send"],
+    "invoke": { "type": "myagent_http", "tool": "send_telegram" }
+  },
+  {
+    "id": "send_whatsapp",
+    "name": "Send WhatsApp Message",
+    "description": "Send a WhatsApp message to any phone number (E.164 format). Only to numbers the owner explicitly names.",
+    "tags": ["whatsapp", "message", "send", "sms"],
+    "invoke": { "type": "myagent_http", "tool": "send_whatsapp" }
+  },
+  {
+    "id": "send_email",
+    "name": "Send Email (Gmail)",
+    "description": "Send an email via the owner's Gmail account.",
+    "tags": ["email", "gmail", "send", "message"],
+    "invoke": { "type": "myagent_http", "tool": "send_email" }
+  },
+  {
+    "id": "read_emails",
+    "name": "Read Emails (Gmail)",
+    "description": "Search and read emails from the owner's Gmail inbox.",
+    "tags": ["email", "gmail", "read", "inbox", "search"],
+    "invoke": { "type": "myagent_http", "tool": "read_emails" }
+  },
+  {
+    "id": "run_shell",
+    "name": "Run Shell Command",
+    "description": "Execute any shell command on the A1 VM as the agent user. Use sudo_run for privileged operations.",
+    "tags": ["shell", "command", "linux", "bash", "execute"],
+    "invoke": { "type": "myagent_http", "tool": "run_shell" }
+  },
+  {
+    "id": "sudo_run",
+    "name": "Run Privileged Shell Command",
+    "description": "Execute a shell command with sudo (passwordless). Use for apt install, service management, system config.",
+    "tags": ["shell", "sudo", "privileged", "admin", "apt", "install"],
+    "invoke": { "type": "myagent_http", "tool": "sudo_run" }
+  },
+  {
+    "id": "fx_rate",
+    "name": "Spot FX Rate",
+    "description": "Get current foreign exchange rate between two currencies via Frankfurter API.",
+    "tags": ["fx", "currency", "exchange", "rate", "usd", "brl", "eur"],
+    "invoke": { "type": "myagent_http", "tool": "fx_rate" }
+  },
+  {
+    "id": "fx_rate_history",
+    "name": "FX Rate History",
+    "description": "Get historical foreign exchange rates for a currency pair over a date range.",
+    "tags": ["fx", "currency", "exchange", "history", "chart"],
+    "invoke": { "type": "myagent_http", "tool": "fx_rate_history" }
+  },
+  {
+    "id": "crypto_price",
+    "name": "Crypto Price",
+    "description": "Get current cryptocurrency price via CoinGecko (Coinbase fallback). Supports BTC, ETH, and 10,000+ tokens.",
+    "tags": ["crypto", "bitcoin", "ethereum", "price", "coingecko"],
+    "invoke": { "type": "myagent_http", "tool": "crypto_price" }
+  },
+  {
+    "id": "memory_store",
+    "name": "Store Memory",
+    "description": "Persist a key-value pair to the agent's encrypted memory store. Survives restarts.",
+    "tags": ["memory", "store", "persist", "remember"],
+    "invoke": { "type": "myagent_http", "tool": "memory_store" }
+  },
+  {
+    "id": "memory_retrieve",
+    "name": "Retrieve Memory",
+    "description": "Retrieve a value from the agent's encrypted memory store by key.",
+    "tags": ["memory", "retrieve", "recall", "remember"],
+    "invoke": { "type": "myagent_http", "tool": "memory_retrieve" }
+  },
+  {
+    "id": "create_cron_job",
+    "name": "Create Scheduled Task",
+    "description": "Schedule a recurring task with a cron expression. Results delivered to Telegram/WhatsApp.",
+    "tags": ["cron", "schedule", "task", "recurring", "automation"],
+    "invoke": { "type": "myagent_http", "tool": "create_cron_job" }
+  },
+  {
+    "id": "list_cron_jobs",
+    "name": "List Scheduled Tasks",
+    "description": "List all active scheduled tasks with their next run time and status.",
+    "tags": ["cron", "schedule", "list", "task"],
+    "invoke": { "type": "myagent_http", "tool": "list_cron_jobs" }
+  },
+  {
+    "id": "delete_cron_job",
+    "name": "Delete Scheduled Task",
+    "description": "Delete a scheduled task by job ID.",
+    "tags": ["cron", "schedule", "delete", "task"],
+    "invoke": { "type": "myagent_http", "tool": "delete_cron_job" }
+  },
+  {
+    "id": "get_current_time",
+    "name": "Get Current Time",
+    "description": "Return current local date and time on the A1 VM host in ISO 8601 format.",
+    "tags": ["time", "date", "clock"],
+    "invoke": { "type": "myagent_http", "tool": "get_current_time" }
+  },
+  {
+    "id": "get_balance",
+    "name": "Get OpenRouter Balance",
+    "description": "Check current OpenRouter API credit balance and monthly spend.",
+    "tags": ["balance", "credits", "openrouter", "spend"],
+    "invoke": { "type": "myagent_http", "tool": "get_balance" }
+  },
+  {
+    "id": "switch_model",
+    "name": "Switch AI Model",
+    "description": "Change the active AI model on myagent (via OpenRouter). Accepts partial names like 'sonnet', 'flash', 'deepseek'.",
+    "tags": ["model", "switch", "ai", "openrouter", "llm"],
+    "invoke": { "type": "myagent_http", "tool": "switch_model" }
+  },
+  {
+    "id": "read_excel",
+    "name": "Read Excel File",
+    "description": "Read content from a .xlsx or .xlsm file on the A1 VM. Returns all sheets as structured data.",
+    "tags": ["excel", "xlsx", "spreadsheet", "read", "data"],
+    "invoke": { "type": "myagent_http", "tool": "read_excel" }
+  },
+  {
+    "id": "write_excel",
+    "name": "Write Excel File",
+    "description": "Write or update data in a .xlsx file on the A1 VM.",
+    "tags": ["excel", "xlsx", "spreadsheet", "write", "data"],
+    "invoke": { "type": "myagent_http", "tool": "write_excel" }
+  },
+  {
+    "id": "keystroke_inject",
+    "name": "Inject Keystrokes",
+    "description": "Inject keyboard input into a running application on the A1 VM display via xdotool/ydotool.",
+    "tags": ["keyboard", "keystrokes", "automation", "input", "xdotool"],
+    "invoke": { "type": "myagent_http", "tool": "keystroke_inject" }
+  }
+]

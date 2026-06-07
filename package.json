@@ -1,0 +1,17 @@
+{
+  "name": "tool-registry",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "seed": "npx tsx scripts/seed.ts",
+    "seed:generate": "npx tsx scripts/seed.ts --generate-only"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250430.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.0.0"
+  }
+}
